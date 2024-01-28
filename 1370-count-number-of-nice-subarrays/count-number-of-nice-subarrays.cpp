@@ -11,7 +11,6 @@ public:
             else pref[i]=pref[i-1];
             mp[pref[i]]++;
         }
-       // for(auto i: mp) cout<<i.first<<" "<<i.second<<" \n";
         for(int i=0;i<=n;i++){
             if(pref[i]<k) continue;
             else{
