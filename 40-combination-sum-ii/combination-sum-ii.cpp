@@ -8,10 +8,11 @@ public:
         
         for(int idx=index; idx<candidates.size(); idx++){
             if(candidates[idx]>target) break;
-            if(idx>index && candidates[idx]==candidates[idx-1]) continue;
-            currSet.push_back(candidates[idx]);
-            sumCombo(idx+1,target-candidates[idx],currSet,candidates,ans);
-            currSet.pop_back();
+            if(idx==index || candidates[idx]!=candidates[idx-1]){
+                currSet.push_back(candidates[idx]);
+                sumCombo(idx+1,target-candidates[idx],currSet,candidates,ans);
+                currSet.pop_back();
+            }
         }
     }
 
