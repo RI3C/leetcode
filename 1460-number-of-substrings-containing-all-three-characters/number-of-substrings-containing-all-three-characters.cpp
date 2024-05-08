@@ -1,7 +1,7 @@
 class Solution {
 public:
     int numberOfSubstrings(string s) {
-        map<char,int> mp;
+        unordered_map<char,int> mp;
         int n=s.size();
         int p1=0,p2=0,ans=0;
         while(p1<n && p2<n){
