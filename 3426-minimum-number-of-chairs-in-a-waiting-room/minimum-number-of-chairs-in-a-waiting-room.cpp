@@ -2,19 +2,12 @@ class Solution {
 public:
     int minimumChairs(string s) {
         int n=s.size();
-        int ans=0;
-        for(int chair=1;chair<=n;chair++){
-            int temp=chair;
-            for(char c: s){
-                if(c=='E') temp--;
-                else temp++;
-                if(temp<0) break;
-            }
-            if(temp>=0) {
-                ans=chair;
-                break;
-            } 
-        }
-        return ans;
+        int ans=0, people=0;
+        for(char c: s){
+            if(c=='E') people++;
+            else people--;
+            ans=max(ans,people);
+        } 
+    return ans;
     }
 };
