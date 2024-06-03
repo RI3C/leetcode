@@ -1,24 +1,19 @@
 class Solution {
 public:
     int countDays(int days, vector<vector<int>>& meetings) {
-        int n=meetings.size();
-        vector<pair<int,int>> initialMeetings;
-        for(auto i: meetings){
-            initialMeetings.push_back({i[0],i[1]});
-        }
-        sort(initialMeetings.begin(),initialMeetings.end());
+        sort(meetings.begin(),meetings.end());
         int prevEnd=-1;
         int prevStart=-1;
         vector<pair<int,int>> mergedMeetings;
-        for(auto i: initialMeetings){
-            if(i.first>prevEnd){
-                mergedMeetings.push_back(i);
-                prevEnd=i.second;
-                prevStart=i.first;
+        for(auto i: meetings){
+            if(i[0]>prevEnd){
+                mergedMeetings.push_back({i[0],i[1]});
+                prevEnd=i[1];
+                prevStart=i[0];
             }
             else{
-                int newStart=min(prevStart,i.first);
-                int newEnd=max(prevEnd,i.second);
+                int newStart=min(prevStart,i[0]);
+                int newEnd=max(prevEnd,i[1]);
                 mergedMeetings.pop_back();
                 mergedMeetings.push_back({newStart,newEnd});
                 prevEnd=newEnd;
