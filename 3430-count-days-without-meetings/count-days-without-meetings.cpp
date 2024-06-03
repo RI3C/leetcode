@@ -7,9 +7,6 @@ public:
             initialMeetings.push_back({i[0],i[1]});
         }
         sort(initialMeetings.begin(),initialMeetings.end());
-        // for(auto i: initialMeetings){
-        //     cout<<i.first<<" "<<i.second<<"\n";
-        // }
         int prevEnd=-1;
         int prevStart=-1;
         vector<pair<int,int>> mergedMeetings;
@@ -32,9 +29,6 @@ public:
         for(auto i: mergedMeetings){
             totalMeetDays+=(i.second-i.first+1);
         }
-        // for(auto i: mergedMeetings){
-        //     cout<<i.first<<" "<<i.second<<"\n";
-        // }
         ans=days-totalMeetDays;
         return ans;
     }
